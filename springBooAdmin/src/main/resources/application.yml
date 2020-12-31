@@ -1,0 +1,4 @@
+#多配置文件切换
+spring:
+  profiles:
+    active: dev

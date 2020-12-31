@@ -1,0 +1,138 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/springboot?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: Xfk19950227
+      max-idle: 10        # 连接池最大的空闲连接数量
+      max-wait: 10000     # 连接池等待连接返回的最大等待时间
+      min-idle: 5         # 必须保持连接的最小值
+      initial-size: 5     # 启动连接池时，初始建立的连接数量
+      validation-query: SELECT 1    # 获取连接时连接校验的sql查询语句
+      test-on-borrow: false  # 从连接池借用连接时，是否测试该连接
+      test-while-idle: true  # 当连接空闲时，是否执行连接测试
+      time-between-eviction-runs-millis: 20000  # 空闲连接检查、废弃连接清理、空闲连接池大小调整之间的操作时间间隔
+    slaver:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/springboot_slave?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: Xfk19950227
+      max-idle: 10
+      max-wait: 10000
+      min-idle: 5
+      initial-size: 5
+      validation-query: SELECT 1
+      test-on-borrow: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 20000
+    slaverX:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/{0}?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: Xfk19950227
+      max-idle: 10
+      max-wait: 10000
+      min-idle: 5
+      initial-size: 5
+      validation-query: SELECT 1
+      test-on-borrow: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 20000
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
+    in-memory: true
+    password: admin
+    pool:
+      enabled: false
+      expiry-timeout: 10000
+      idle-timeout: 30000
+      max-connections: 50
+    user: admin
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+  jms:
+    pub-sub-domain: true
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  redis:
+    database: 0
+    host: 127.0.0.1
+    jedis:
+      pool:
+        max-idle: 200
+        max-wait: ''
+        min-idle: 0
+    password: ''
+    port: 6379
+    timeout: 1000
+  resources:
+    static-locations: classpath:/static
+  servlet:
+    multipart:
+      max-file-size: 5MB
+  rabbitmq:
+    host: 106.54.138.86
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8000/
+
+logging:
+  level:
+    com.example.xiongfk.mapper: debug
+  config: classpath:logback.xml
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
+
+## 自定义线程池配置
+myThread:
+  corePoolSize: 10
+  maxPoolSize: 20
+  keepAliveSeconds: 300
+  queueCapacity: 100
+  threadNamePrefix: xiongfk-async-service-
+
+
+xxl:
+  job:
+    admin:
+      addresses: http://127.0.0.1:8088/xxl-job-admin
+    executor:
+      ip:
+      port: 9999
+      logpath: /data/applogs/xxl-job/jobhandler
+      appname: plat-job
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+threadPool:
+  corePoolSize: 10
+  maxPoolSize: 20
+  keepAliveSeconds: 300
+  capaticy: 50
+# Elasticsearch配置
+elasticsearch:
+  host: 172.23.216.189
+  port: 9200
+  userName:
+  password:

@@ -1,0 +1,20 @@
+1.打包
+xxl-job-executor-homeinns-springboot项目依赖于xxl-job-core项目
+打包时必须先把xxl-job-core项目 mvn install
+然后xxl-job-executor-crm-springboot项目才能进行打包 mv install
+
+2.包结构说明
+lib下是所有项目的依赖jar包
+xxl-job-executor-homeinns-springboot-2.0.1.jar中只有项目文件(class,resource资源配置等文件)
+
+3.启动说明及脚本
+服务器
+/xxl-job/xxl-job-executor-homeinns/target文件夹下包含lib文件夹和xxl-job-executor-homeinns-springboot-2.0.1.jar
+
+脚本启动:
+./xxl-job-homeinns.sh start|stop|restart
+
+4.注意
+依赖的jar scope 尽量为compile不然打包时MANIFEST.MF的class-path属性中不会有此jar
+服务运行时会提示NoClassDefFoundError
+用jar命令运行你的程序，但jar文件路径并没有在manifest文件中的classpath属性中定义

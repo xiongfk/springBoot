@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiongfk.springBooting.mapper.master.EbizRedisLogMapper">
+    <resultMap id="BaseResultMap" type="com.xiongfk.springBooting.model.EbizRedisLog">
+        <id column="sid" jdbcType="INTEGER" property="sid"/>
+        <result column="table_name" jdbcType="VARCHAR" property="tableName"/>
+        <result column="redis_count" jdbcType="INTEGER" property="redisCount"/>
+        <result column="db_count" jdbcType="INTEGER" property="dbCount"/>
+        <result column="update_count" jdbcType="INTEGER" property="updateCount"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate"/>
+        <result column="is_delete" jdbcType="VARCHAR" property="isDelete"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        sid, table_name, redis_count, db_count, update_count, create_date, modify_date, is_delete
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ebiz_redis_log
+        where sid = #{sid,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectByTableName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ebiz_redis_log
+        where table_Name = #{tableName,jdbcType=VARCHAR}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from ebiz_redis_log
+        where sid = #{sid,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.xiongfk.springBooting.model.EbizRedisLog">
+        insert into ebiz_redis_log (sid, table_name, redis_count,
+        db_count, update_count, create_date,
+        modify_date, is_delete)
+        values (#{sid,jdbcType=INTEGER}, #{tableName,jdbcType=VARCHAR}, #{redisCount,jdbcType=INTEGER},
+        #{dbCount,jdbcType=INTEGER}, #{updateCount,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP},
+        #{modifyDate,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.xiongfk.springBooting.model.EbizRedisLog">
+        insert into ebiz_redis_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sid != null">
+                sid,
+            </if>
+            <if test="tableName != null">
+                table_name,
+            </if>
+            <if test="redisCount != null">
+                redis_count,
+            </if>
+            <if test="dbCount != null">
+                db_count,
+            </if>
+            <if test="updateCount != null">
+                update_count,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="modifyDate != null">
+                modify_date,
+            </if>
+            <if test="isDelete != null">
+                is_delete,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sid != null">
+                #{sid,jdbcType=INTEGER},
+            </if>
+            <if test="tableName != null">
+                #{tableName,jdbcType=VARCHAR},
+            </if>
+            <if test="redisCount != null">
+                #{redisCount,jdbcType=INTEGER},
+            </if>
+            <if test="dbCount != null">
+                #{dbCount,jdbcType=INTEGER},
+            </if>
+            <if test="updateCount != null">
+                #{updateCount,jdbcType=INTEGER},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDelete != null">
+                #{isDelete,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xiongfk.springBooting.model.EbizRedisLog">
+        update ebiz_redis_log
+        <set>
+            <if test="tableName != null">
+                table_name = #{tableName,jdbcType=VARCHAR},
+            </if>
+            <if test="redisCount != null">
+                redis_count = #{redisCount,jdbcType=INTEGER},
+            </if>
+            <if test="dbCount != null">
+                db_count = #{dbCount,jdbcType=INTEGER},
+            </if>
+            <if test="updateCount != null">
+                update_count = #{updateCount,jdbcType=INTEGER},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where sid = #{sid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.xiongfk.springBooting.model.EbizRedisLog">
+        update ebiz_redis_log
+        set table_name = #{tableName,jdbcType=VARCHAR},
+        redis_count = #{redisCount,jdbcType=INTEGER},
+        db_count = #{dbCount,jdbcType=INTEGER},
+        update_count = #{updateCount,jdbcType=INTEGER},
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+        modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+        is_delete = #{isDelete,jdbcType=VARCHAR}
+        where sid = #{sid,jdbcType=INTEGER}
+    </update>
+</mapper>

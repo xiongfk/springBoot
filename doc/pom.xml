@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<!--    <parent>-->
+<!--        <artifactId>xxl-job-executors</artifactId>-->
+<!--        <groupId>com.xuxueli</groupId>-->
+<!--        <version>2.0.1</version>-->
+<!--    </parent>-->
+<!--    <modelVersion>4.0.0</modelVersion>-->
+
+<!--    <artifactId>xxl-job-executor-homeinns-springboot</artifactId>-->
+
+<!--    <properties>-->
+<!--    </properties>-->
+
+<!--    <dependencyManagement>-->
+<!--        <dependencies>-->
+<!--            <dependency>-->
+<!--                &lt;!&ndash; Import dependency management from Spring Boot (依赖管理：继承一些默认的依赖，工程需要依赖的jar包的管理，申明其他dependency的时候就不需要version) &ndash;&gt;-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-parent</artifactId>-->
+<!--                <version>${spring-boot.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; jetty &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>org.eclipse.jetty</groupId>-->
+<!--                <artifactId>jetty-server</artifactId>-->
+<!--                <version>${jetty-server.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.eclipse.jetty</groupId>-->
+<!--                <artifactId>jetty-util</artifactId>-->
+<!--                <version>${jetty-server.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.eclipse.jetty</groupId>-->
+<!--                <artifactId>jetty-http</artifactId>-->
+<!--                <version>${jetty-server.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.eclipse.jetty</groupId>-->
+<!--                <artifactId>jetty-io</artifactId>-->
+<!--                <version>${jetty-server.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.eclipse.jetty</groupId>-->
+<!--                <artifactId>jetty-client</artifactId>-->
+<!--                <version>${jetty-server.version}</version>-->
+<!--            </dependency>-->
+<!--        </dependencies>-->
+<!--    </dependencyManagement>-->
+
+<!--    <dependencies>-->
+<!--        &lt;!&ndash;postgreSql driver&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.postgresql</groupId>-->
+<!--            <artifactId>postgresql</artifactId>-->
+<!--            <version>42.2.8.jre7</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba</groupId>-->
+<!--            <artifactId>druid</artifactId>-->
+<!--            <version>1.1.12</version>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash;oracle driver&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.oracle</groupId>-->
+<!--            <artifactId>ojdbc14</artifactId>-->
+<!--            <version>10.2.0.4.0</version>-->
+<!--        </dependency>-->
+
+
+<!--        &lt;!&ndash; spring-boot-starter-web (spring-webmvc + tomcat) &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-web</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-test</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash; xxl-job-core &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.xuxueli</groupId>-->
+<!--            <artifactId>xxl-job-core</artifactId>-->
+<!--            <version>${project.parent.version}</version>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash;rabbitmq&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-amqp</artifactId>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash;redis&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-redis</artifactId>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash;aop&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-aop</artifactId>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.aspectj</groupId>-->
+<!--            <artifactId>aspectjrt</artifactId>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.aspectj</groupId>-->
+<!--            <artifactId>aspectjweaver</artifactId>-->
+<!--        </dependency>-->
+
+
+<!--        &lt;!&ndash; mysql &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>mysql</groupId>-->
+<!--            <artifactId>mysql-connector-java</artifactId>-->
+<!--            <version>${mysql-connector-java.version}</version>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash; mybatis-starter：mybatis + mybatis-spring + tomcat-jdbc（default） &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis.spring.boot</groupId>-->
+<!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
+<!--            <version>${mybatis-spring-boot-starter.version}</version>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash;kudu-client&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.kudu</groupId>-->
+<!--            <artifactId>kudu-client</artifactId>-->
+<!--            <version>1.7.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; ImpalaJDBC start&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.cloudera</groupId>-->
+<!--            <artifactId>ImpalaJDBC</artifactId>-->
+<!--            <version>41</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.apache.hive</groupId>-->
+<!--            <artifactId>TCLIServiceClient</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash;        <dependency>-->
+<!--                    <groupId>org.apache.oozie</groupId>-->
+<!--                    <artifactId>oozie-core</artifactId>-->
+<!--                    <version>4.1.0-cdh5.13.0</version>-->
+<!--                    <scope>provided</scope>-->
+<!--                </dependency>&ndash;&gt;-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.apache.oozie</groupId>-->
+<!--            <artifactId>oozie-core</artifactId>-->
+<!--            <version>4.1.0</version>-->
+<!--            &lt;!&ndash;<scope>provided</scope>&ndash;&gt;-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>guava</artifactId>-->
+<!--                    <groupId>com.google.guava</groupId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
+
+
+<!--        <dependency>-->
+<!--            <groupId>xml-apis</groupId>-->
+<!--            <artifactId>xml-apis</artifactId>-->
+<!--            <version>1.4.01</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.thrift</groupId>-->
+<!--            <artifactId>libthrift</artifactId>-->
+<!--            <version>0.9.1</version>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash; ImpalaJDBC end &ndash;&gt;-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.zaxxer</groupId>-->
+<!--            <artifactId>HikariCP</artifactId>-->
+<!--            <version>3.3.1</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba</groupId>-->
+<!--            <artifactId>fastjson</artifactId>-->
+<!--            <version>1.2.54</version>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash;mybatis-generate&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis.generator</groupId>-->
+<!--            <artifactId>mybatis-generator-core</artifactId>-->
+<!--            <version>1.3.5</version>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash; jsch  &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.glassfish.external</groupId>-->
+<!--            <artifactId>jsch</artifactId>-->
+<!--            <version>0.1.56</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; jsch end &ndash;&gt;-->
+
+<!--        <dependency>-->
+<!--            <groupId>dom4j</groupId>-->
+<!--            <artifactId>dom4j</artifactId>-->
+<!--            <version>1.6.1</version>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash;java mail&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-mail</artifactId>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash; commons-lang3 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.commons</groupId>-->
+<!--            <artifactId>commons-lang3</artifactId>-->
+<!--            <version>${commons-lang3.version}</version>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash;poi&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.poi</groupId>-->
+<!--            <artifactId>poi</artifactId>-->
+<!--            <version>3.9</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.poi</groupId>-->
+<!--            <artifactId>poi-ooxml</artifactId>-->
+<!--            <version>3.9</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.kudu</groupId>-->
+<!--            <artifactId>kudu-client</artifactId>-->
+<!--            <version>1.5.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; 增加 sqlserverjar &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.microsoft.sqlserver</groupId>-->
+<!--            <artifactId>sqljdbc4</artifactId>-->
+<!--            <version>4.0</version>-->
+<!--        </dependency>-->
+<!--    </dependencies>-->
+
+<!--    <build>-->
+<!--        &lt;!&ndash;<pluginManagement>&ndash;&gt;-->
+<!--            &lt;!&ndash;<plugins>&ndash;&gt;-->
+<!--                &lt;!&ndash;&lt;!&ndash; Ignore/Execute plugin execution &ndash;&gt;&ndash;&gt;-->
+<!--                &lt;!&ndash;<plugin>&ndash;&gt;-->
+<!--                    &lt;!&ndash;<groupId>org.eclipse.m2e</groupId>&ndash;&gt;-->
+<!--                    &lt;!&ndash;<artifactId>lifecycle-mapping</artifactId>&ndash;&gt;-->
+<!--                    &lt;!&ndash;<version>1.0.0</version>&ndash;&gt;-->
+<!--                    &lt;!&ndash;<configuration>&ndash;&gt;-->
+<!--                        &lt;!&ndash;<lifecycleMappingMetadata>&ndash;&gt;-->
+<!--                            &lt;!&ndash;<pluginExecutions>&ndash;&gt;-->
+<!--                                &lt;!&ndash;<pluginExecution>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;<pluginExecutionFilter>&ndash;&gt;-->
+<!--                                        &lt;!&ndash;<groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
+<!--                                        &lt;!&ndash;<artifactId>maven-dependency-plugin</artifactId>&ndash;&gt;-->
+<!--                                        &lt;!&ndash;<versionRange>[1.0.0,)</versionRange>&ndash;&gt;-->
+<!--                                        &lt;!&ndash;<goals>&ndash;&gt;-->
+<!--                                            &lt;!&ndash;<goal>copy-dependencies</goal>&ndash;&gt;-->
+<!--                                            &lt;!&ndash;<goal>unpack</goal>&ndash;&gt;-->
+<!--                                        &lt;!&ndash;</goals>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;</pluginExecutionFilter>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;<action>&ndash;&gt;-->
+<!--                                        &lt;!&ndash;<ignore />&ndash;&gt;-->
+<!--                                    &lt;!&ndash;</action>&ndash;&gt;-->
+<!--                                &lt;!&ndash;</pluginExecution>&ndash;&gt;-->
+<!--                            &lt;!&ndash;</pluginExecutions>&ndash;&gt;-->
+<!--                        &lt;!&ndash;</lifecycleMappingMetadata>&ndash;&gt;-->
+<!--                    &lt;!&ndash;</configuration>&ndash;&gt;-->
+<!--                &lt;!&ndash;</plugin>&ndash;&gt;-->
+<!--            &lt;!&ndash;</plugins>&ndash;&gt;-->
+<!--        &lt;!&ndash;</pluginManagement>&ndash;&gt;-->
+<!--        <plugins>-->
+<!--            &lt;!&ndash; spring-boot-maven-plugin (提供了直接运行项目的插件：如果是通过parent方式继承spring-boot-starter-parent则不用此插件) &ndash;&gt;-->
+<!--            &lt;!&ndash;<plugin>&ndash;&gt;-->
+<!--                &lt;!&ndash;<groupId>org.springframework.boot</groupId>&ndash;&gt;-->
+<!--                &lt;!&ndash;<artifactId>spring-boot-maven-plugin</artifactId>&ndash;&gt;-->
+<!--                &lt;!&ndash;<version>${spring-boot.version}</version>&ndash;&gt;-->
+<!--                &lt;!&ndash;<executions>&ndash;&gt;-->
+<!--                    &lt;!&ndash;<execution>&ndash;&gt;-->
+<!--                        &lt;!&ndash;<goals>&ndash;&gt;-->
+<!--                            &lt;!&ndash;<goal>repackage</goal>&ndash;&gt;-->
+<!--                        &lt;!&ndash;</goals>&ndash;&gt;-->
+<!--                    &lt;!&ndash;</execution>&ndash;&gt;-->
+<!--                &lt;!&ndash;</executions>&ndash;&gt;-->
+<!--            &lt;!&ndash;</plugin>&ndash;&gt;-->
+
+<!--            &lt;!&ndash;mybatis-generate-plugin&ndash;&gt;-->
+<!--            <plugin>-->
+<!--                <groupId>org.mybatis.generator</groupId>-->
+<!--                <artifactId>mybatis-generator-maven-plugin</artifactId>-->
+<!--                <version>1.3.5</version>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash;generatorConfig.xml位置&ndash;&gt;-->
+<!--                    <configurationFile>src/main/resources/mybatis-generator/generatorConfig.xml</configurationFile>-->
+<!--                    <verbose>true</verbose>-->
+<!--                    <overwrite>true</overwrite>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>Generate MyBatis Artifacts</id>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                        &lt;!&ndash; <phase>generate-sources</phase>&ndash;&gt;-->
+<!--                        <phase>deploy</phase>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                &lt;!&ndash;此处必须添加mysql驱动包&ndash;&gt;-->
+<!--                <dependencies>-->
+<!--                    &lt;!&ndash;                    <dependency>-->
+<!--                                            <groupId>mysql</groupId>-->
+<!--                                            <artifactId>mysql-connector-java</artifactId>-->
+<!--                                            <scope>runtime</scope>-->
+<!--                                            <version>${mysql-connector-java.version}</version>-->
+<!--                                        </dependency>&ndash;&gt;-->
+<!--                    <dependency>-->
+<!--                        <groupId>com.oracle</groupId>-->
+<!--                        <artifactId>ojdbc14</artifactId>-->
+<!--                        <version>10.2.0.4.0</version>-->
+<!--                        <scope>runtime</scope>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
+<!--            </plugin>-->
+
+<!--            &lt;!&ndash;<plugin>&ndash;&gt;-->
+<!--                &lt;!&ndash;<groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
+<!--                &lt;!&ndash;<artifactId>maven-compiler-plugin</artifactId>&ndash;&gt;-->
+<!--                &lt;!&ndash;<version>3.6.0</version>&ndash;&gt;-->
+<!--                &lt;!&ndash;<configuration>&ndash;&gt;-->
+<!--                    &lt;!&ndash;<source>1.8</source>&ndash;&gt;-->
+<!--                    &lt;!&ndash;<target>1.8</target>&ndash;&gt;-->
+<!--                &lt;!&ndash;</configuration>&ndash;&gt;-->
+<!--            &lt;!&ndash;</plugin>&ndash;&gt;-->
+
+
+<!--            &lt;!&ndash; 打包jar文件时，配置manifest文件，加入lib包的jar依赖 &ndash;&gt;-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-jar-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <archive>-->
+<!--                        <manifest>-->
+<!--                            <addClasspath>true</addClasspath>-->
+<!--                            <classpathPrefix>lib/</classpathPrefix>-->
+<!--                            <mainClass>com.xxl.job.executor.XxlJobExecutorHomeinnsApplication</mainClass>-->
+<!--                            &lt;!&ndash; 如果不加这一句则依赖的SNAPSHOT的jar包就会表现为MANIFEST.MF中的-->
+<!--							Class-Path: lib/facede-user-1.0-20160512.093945-1.jar-->
+<!--							但是打包到../lib/facede-user-1.0-SNAPSHOT.jar下面包,这样就会出现找不到类的情况 &ndash;&gt;-->
+<!--                            <useUniqueVersions>false</useUniqueVersions>-->
+<!--                        </manifest>-->
+<!--                        <manifestEntries>-->
+<!--                            <Class-Path>./resource/</Class-Path>-->
+<!--                        </manifestEntries>-->
+<!--                    </archive>-->
+<!--                    <excludes>-->
+<!--                        <exclude>**/mybatis-generator/**</exclude>-->
+<!--                        <exclude>**/mybatis-mapper/**</exclude>-->
+<!--                        <exclude>**/mybatis-mapper-ah/**</exclude>-->
+<!--                        <exclude>**/*.xml</exclude>-->
+<!--                        <exclude>**/*.properties</exclude>-->
+<!--                    </excludes>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-dependency-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>copy-dependencies</id>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>copy-dependencies</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            &lt;!&ndash;<excludeTransitive>false</excludeTransitive>&ndash;&gt;-->
+<!--                            &lt;!&ndash;<stripVersion>false</stripVersion>&ndash;&gt;-->
+<!--                            &lt;!&ndash;<overWriteSnapshots>true</overWriteSnapshots>&ndash;&gt;-->
+<!--                            <type>jar</type>-->
+<!--                            <includeTypes>jar</includeTypes>-->
+<!--                            <outputDirectory>${project.build.directory}/lib</outputDirectory>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-resources-plugin</artifactId>-->
+<!--                <version>3.0.2</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>copy-resources</id>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>copy-resources</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <resources>-->
+<!--                                <resource>-->
+<!--                                    <directory>src/main/resources</directory>-->
+<!--                                </resource>-->
+<!--                            </resources>-->
+<!--                            <outputDirectory>${project.build.directory}/resource</outputDirectory>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+<!--            &lt;!&ndash;<plugin>&ndash;&gt;-->
+<!--                &lt;!&ndash;<groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
+<!--                &lt;!&ndash;<artifactId>maven-shade-plugin</artifactId>&ndash;&gt;-->
+<!--                &lt;!&ndash;<version>2.3</version>&ndash;&gt;-->
+<!--                &lt;!&ndash;<executions>&ndash;&gt;-->
+<!--                    &lt;!&ndash;<execution>&ndash;&gt;-->
+<!--                        &lt;!&ndash;<phase>package</phase>&ndash;&gt;-->
+<!--                        &lt;!&ndash;<goals>&ndash;&gt;-->
+<!--                            &lt;!&ndash;<goal>shade</goal>&ndash;&gt;-->
+<!--                        &lt;!&ndash;</goals>&ndash;&gt;-->
+<!--                        &lt;!&ndash;<configuration>&ndash;&gt;-->
+<!--                            &lt;!&ndash;<transformers>&ndash;&gt;-->
+<!--                                &lt;!&ndash;<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;<mainClass>com.xxl.job.executor.XxlJobExecutorHomeinnsApplication</mainClass>&ndash;&gt;-->
+<!--                                &lt;!&ndash;</transformer>&ndash;&gt;-->
+<!--                            &lt;!&ndash;</transformers>&ndash;&gt;-->
+<!--                        &lt;!&ndash;</configuration>&ndash;&gt;-->
+<!--                    &lt;!&ndash;</execution>&ndash;&gt;-->
+<!--                &lt;!&ndash;</executions>&ndash;&gt;-->
+<!--            &lt;!&ndash;</plugin>&ndash;&gt;-->
+
+<!--        </plugins>-->
+<!--    </build>-->
+</project>
